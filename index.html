@@ -1,0 +1,141 @@
+<html>
+    <link rel="icon" href="data:;base64,iVBORwOKGO=" />
+    <head>
+        <title>Victoria Property Price Explorer</title>
+        
+        <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' />
+        <link rel="stylesheet" href="main.css">
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
+        
+    </head>
+    <body>
+        <!-- MapBox -->
+        <div id='map'></div>
+        <!-- RightBar -->
+        <div class='map-overlay'>
+            <!-- FilterInput -->
+            <fieldset>
+                <input id='suburb-filter' type='text' placeholder='Filter results by suburbs' />
+            </fieldset>
+            <!-- ResetButton -->
+            <div style="padding: 10px">
+                <button id='suburb-reset' onclick="resetView()">Reset</button>
+            </div>
+            <!-- ListTitle -->
+            <div style="padding: 10px">
+                <span id='suburb-filter-tips'>Suburbs in current view</span>
+            </div> 
+            <!-- FilteredList -->
+            <div id='suburb-listing' class='listing'></div>
+        </div>
+        <!-- LeftBar -->
+        <div id="leftBar">
+            <!-- ControllPanel -->
+            <div id='controlls'>
+            <h1>Victorian Housing Price</h1>
+            <p>Data: <a href='https://www.data.vic.gov.au/data/dataset/victorian-property-sales-report-median-house-by-suburb'>Median House Sales Report</a>,
+                <a href='https://www.data.vic.gov.au/data/dataset/victorian-property-sales-report-median-unit-by-suburb'>Median Unit Sales Report</a>, <a href='https://www.data.vic.gov.au/data/dataset/victorian-property-sales-report-median-vacant-land-by-suburb'>Median Vacant Land Sales Report</a> retrived from DATA.VIC.GOV.AU, Aug 2014</p>
+                <!-- Legend -->
+                <div class='session' id='legend-house'>
+                    <h2>Median house price:</h2>
+                    <div class='row colors'>
+                    </div>
+                    <div class='row labels'>
+                        <div class='label'>50k</div>
+                        <div class='label'>200k</div>
+                        <div class='label'>1000k</div>
+                        <div class='label'>2000k</div>
+                        <div class='label'>3000k</div>
+                        <div class='label'>4000k+</div>
+                   </div>
+                </div>
+                <div class='session' id='legend-unit' hidden='true'>
+                    <h2>Median unit price:</h2>
+                    <div class='row colors'>
+                    </div>
+                    <div class='row labels'>
+                        <div class='label'>50k</div>
+                        <div class='label'>300k</div>
+                        <div class='label'>600k</div>
+                        <div class='label'>900k</div>
+                        <div class='label'>1200k</div>
+                        <div class='label'>1300k+</div>
+                   </div>
+                </div>
+                <div class='session' id='legend-vacant' hidden='true'>
+                    <h2>Median vacant land price:</h2>
+                    <div class='row colors'>
+                    </div>
+                    <div class='row labels'>
+                        <div class='label'>50k</div>
+                        <div class='label'>300k</div>
+                        <div class='label'>600k</div>
+                        <div class='label'>900k</div>
+                        <div class='label'>1200k</div>
+                        <div class='label'>1500k+</div>
+                   </div>
+                </div>
+                <!-- YearSlider -->
+                <div class='session' id='sliderbar'>
+                  <h2>Year: <label id='visible-year'>2016</label></h2>
+                  <input id='slider' class='row' type='range' min='2006' max='2016' step='1' value='2016' />
+                </div>
+                <!-- TypeRadioGroup -->
+                <div class='session'>
+                  <h2>Property Type:</h2>
+                  <div class='row' id='type-filters'>
+                    <input id='house' type='radio' name='toggle' value='house' checked='checked'>
+                    <label for='house'>House</label>
+                    <input id='unit' type='radio' name='toggle' value='unit'>
+                    <label for='unit'>Unit</label>
+                    <input id='vacant' type='radio' name='toggle' value='vacant'>
+                    <label for='vacant'>Vacant Land</label>
+                  </div>
+                </div>
+            </div>
+            <!-- InfoPanel -->
+            <div id='info'>
+                  <!-- PanelHeader -->
+                  <div id='info-header'></div>
+
+                  <!-- ChartContent -->
+                  <div id='info-content'>
+                      
+                    <!-- ChartTitle-->
+                    <div id='info-title'></div>                      
+
+                    <!-- BarChart-->
+                    <div id='info-graph'></div>
+
+                    <!-- PropertyType -->
+                    <div id='info-proptype' class='param'>
+                        <div id='info-proptype-value' class='param-value'></div>
+                        <div id='info-proptype-caption' class='param-caption'>Property Type:</div>
+                    </div>
+
+                    <!-- TwoYearsGrowth -->
+                    <div id='info-twoyear' class='param'>
+                        <div id='info-twoyear-value' class='param-value'></div>
+                        <div id='info-twoyear-caption' class='param-caption'>Price Growth 2015-2016:</div>
+                    </div>
+
+                    <!-- TenYearsGrowth -->
+                    <div id='info-tenyear' class='param'>
+                        <div id='info-tenyear-value' class='param-value'></div>
+                        <div id='info-tenyear-caption' class='param-caption'>Price Growth 2006-2016:</div>
+                    </div>
+                      
+                    <!-- PerYearGrowth -->
+                    <div id='info-peryear' class='param'>
+                        <div id='info-peryear-value' class='param-value'></div>
+                        <div id='info-peryear-caption' class='param-caption'>Price Growth per Year:</div>
+                    </div>                      
+            </div>
+        </div>
+        </div>
+
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+    </body>
+</html>

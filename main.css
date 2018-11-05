@@ -1,0 +1,278 @@
+/*Map*/
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 85%;
+  height: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  right: 15%;
+}
+
+/*Web Page*/
+
+h1 {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+h2 {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #2dc4b2;
+}
+
+body {
+  color: #eee;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;  
+}
+
+/*Controlls*/
+
+#controlls {
+/*  position: absolute;*/
+  width: 370px;
+  margin: 10px;
+  left: 0px;
+  top: 0px;
+  padding: 20px 20px 20px 20px;
+  background-color: black;
+    
+}
+
+/*Legend*/
+
+.session {
+  margin-bottom: 20px;
+}
+
+.row {
+  height: 12px;
+  width: 100%;
+}
+
+.colors {
+  background: linear-gradient(to right, #2dc4b2, #3bb3c3, #669ec4, #8b88b6, #a2719b, #aa5e79);
+  margin-bottom: 5px;
+}
+
+.label {
+  width: 15%;
+  display: inline-block;
+  text-align: center;
+}
+
+/*Popup Box*/
+
+.mapboxgl-popup {
+  max-width: 400px;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  text-align: left;
+}
+
+.list-group {
+    align-content: center;
+    padding: 10px, 10px, 10px, 10px;
+}
+
+/*Suburb Filter*/
+
+.map-overlay {
+    position: absolute;
+    width: 15%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    font: 12px/20px 'Montserrat', sans-serif;
+    color: white;
+    background-color: #000;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.map-overlay fieldset {
+    display: none;
+    background: #000;
+    border: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.map-overlay input {
+    display: block;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 0;
+}
+
+.map-overlay button {
+    display: block;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 0;
+}
+
+.map-overlay .listing {
+    overflow: auto;
+    max-height: 100%;
+}
+
+.map-overlay .listing > * {
+    display: block;
+    padding: 5px 10px;
+    margin: 0;
+}
+
+.map-overlay .listing p {
+    border-bottom: 1px dashed #FFF;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.map-overlay .listing a:last-child {
+    border: none;
+}
+
+.map-overlay .listing a:hover {
+    background: #f0f0f0;
+}
+
+#suburb-filter-tips {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 5px;
+}
+
+#leftBar{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#leftBar > div{
+    float:bottom;
+    margin:10px;
+    opacity: 0.8;
+}
+
+#info {
+    width: 370px;
+    height: 400px;
+    margin: 10px;
+    left: 0px;
+    padding: 20px 20px 20px 20px;
+    background-color: black;
+}
+
+#info-content {
+ font-size: 13px;
+}
+
+#info-header {
+ font-weight: 400;
+ margin-bottom: 10px;
+ text-align: left;
+ font-size: 15px;
+ font-weight: bold;
+}
+
+#info-title {
+  color: #eee;  
+}
+
+.param {
+  line-height: 28px;
+}
+
+.param-value {
+  float: right;
+  display: inline-block;
+  color: #eee;
+  font-size: 14px;
+  padding-right: 30px;
+}
+
+.param-caption {
+  display: inline-block;
+  color: #ccc;
+  font-size: 12px;
+  padding-left: 30px;
+}
+
+/*Bar Chart*/
+
+.bar {
+  fill: #FFF;
+}
+
+.bar:hover {
+  fill: #2dc4b2;
+}
+
+.bar-tooltip{
+    position: absolute;
+    text-align: center;
+    max-width: 70px;
+    max-height: 70px;
+    padding: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 8px;
+    margin-top: -30px;
+    font: 12px sans-serif;
+    background: black;
+    color: white;
+    pointer-events: none;
+}
+
+hr {
+    color: white;
+    width: 100%;
+    vertical-align: middle;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;    
+}
+
+.axis--x path {
+  display: none;
+}
+
+.axis line{
+  stroke: #FFF;
+}
+
+.axis path{
+  stroke: #FFF;
+}
+
+.axis text{
+  fill: #FFF;
+} 
